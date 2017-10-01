@@ -3,8 +3,8 @@
 #Сгенерируйте 200 случайных значений из стандартного экспоненциального распределения и сохраните в вектор exp.1. Найдите среднее и стандартное отклонение из данных этого вектора.
 
 exp.1 <- rexp(n = 200)
-exp.1.mean <- mean(exp.1)
-exp.1.sd <- sd(exp.1)
+mean(exp.1)
+sd(exp.1)
 #Повторите, использовав следующие значения параметра λ: 0.1, 0.5, 5, 10, и сохраните результаты в векторы: exp.0.1, exp.0.5, exp.5, exp.10.
 
 exp.0.1 <- rexp(n = 200, rate = 0.1)
@@ -39,6 +39,7 @@ plot(exp.means, exp.sds, bg = "black", pch = 21)
 #Интересный факт: графики зависимостей λ от mean и sd для __экспоненциального__ распределения представляют собой экспоненту
 #Вывод №2: sd и mean прямо пропорциональны и имеют прямолинейную зависимость
 
+par(mfrow = c(1, 1))
 #   Задание 2
 #################################
 #Для демонстрации сгенерируйте 1100000 (1 млн. 100 тысяч) чисел из стандартного экспоненциального распределения и сохраните их в вектор huge.exp.1. Получите среднее и стандартное отклонение.
@@ -46,9 +47,11 @@ plot(exp.means, exp.sds, bg = "black", pch = 21)
 huge.exp.1 <- rexp(1100000)
 huge.exp.1.mean <- mean(huge.exp.1)
 huge.exp.1.sd <- sd(huge.exp.1)
+print(huge.exp.1.mean)
+print(huge.exp.1.sd)
 #Получите гистограмму huge.exp.1. Она соответствует функции 1 - e:^(-x)? Должна ли?
 
-plot(0:15,type="l", 1 - exp(-x), lwd = 2, main="", xlab="", ylab="", yaxt="n", xaxt="n", col="red")
+plot(0:15, type = "l", 1 - exp(-(0:15)), lwd = 2, main = "", xlab = "", ylab = "", yaxt = "n", xaxt = "n", col = "red")
 par(new = TRUE)
 hist(huge.exp.1, prob = TRUE, main = "", xlab = "", ylab = "", yaxt = "n", xaxt = "n")
 lines(density(huge.exp.1, adjust = 5), lwd = 2)
@@ -58,7 +61,7 @@ legend("topright", col = c("black", "red"), lty = 1, lwd = 3, bty = "n",
 
 #Получите среднее всех чисел из huge.exp.1 строго больших 1. Для проверки выборки может потребоваться новый вектор.
 
-huge.exp.1.more_than_one_mean <- mean(huge.exp.1[huge.exp.1 > 1])
+mean(huge.exp.1[huge.exp.1 > 1])
 #Получите матрицу huge.exp.1.mat, содержащую 1100 строк и 1000 колонок. Постройте гистограмму, использовав полученную матрицу. Что можно сказать о полученных данных?
 
 huge.exp.1.mat <- matrix(huge.exp.1, 1100, 1000)
@@ -78,6 +81,8 @@ barplot(huge.exp.1.mat.mean)
 huge.exp.1.square <- huge.exp.1 ^ 2
 huge.exp.1.square.mean <- mean(huge.exp.1.square)
 huge.exp.1.square.sd <- sd(huge.exp.1.square)
+print(huge.exp.1.square.mean)
+print(huge.exp.1.square.sd)
 
 huge.exp.1.square.mean - huge.exp.1.mean
 #По формуле среднего - чем больше сумма всех элементов, тем больше значение среднего, количество элементов остается прежним
