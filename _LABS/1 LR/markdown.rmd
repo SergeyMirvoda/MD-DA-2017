@@ -1,5 +1,5 @@
 ﻿---
-title: "laba 1"
+title: "Лабораторная работа №1"
 output: html_document
 ---
 
@@ -122,7 +122,7 @@ colMeans(huge.exp.1.mat)[137]
 
 ```{r}
 huge.exp.1.mat.mean <- colMeans(huge.exp.1.mat)
-barplot(huge.exp.1.mat.mean)
+hist(huge.exp.1.mat.mean)
 ```
 
 Форма отличается, т.к. мы имеем дело с другими данными

@@ -60,27 +60,18 @@ plot(wdVect, lnVect, type = "p", xlab = "width", ylab = "length", main = "Rectan
 
 ```{r}
 timeBar <- c("Math" = 40, "English" = 40, "PE" = 10, "Programming" = 150)
-dotchart(timeBar, main = "Vasya's timetable", xlab = "hours", pch = "x")
+barplot(timeBar, main = "Vasya's timetable", xlab = "hours", pch = "x")
 ```
 
 ### «адание 6
 Ќапитки разливаютс€ вручную в банки по 455 мл, количество налитого нормально распределено со средним значением 450 мл. и стандартным отклонением 4 мл. —моделируйте разливание в 10000 бутылок и расчитайте веро€тность переливани€ банки.
 
 ```{r}
-overPourChance <- function(x, rule) {
-    cmp <- x > rule
-    if (is.na(cmp[cmp == "TRUE"][1])) return(0)
-    ch <- length(cmp[cmp == "TRUE"]) / length(x) * 100
-    return(ch)
-}
 n <- 10 ^ 4
 rule <- 455
 drinks <- rnorm(n, mean = 450, sd = 4)
-overPourPercent <- overPourChance(drinks, rule)
-print(paste("Chance of overfill: ", overPourPercent, "%"))
+print(paste("Chance of overfill: ", mean(drinks > 455) * 100, "%"))
 ```
-
-ƒл€ определени€ веро€тности была использована формула: $P = \frac{m}{n}$, где *m* - число благопри€тных исходов, *n* - общее число исходов
 
 # «аключение
 
