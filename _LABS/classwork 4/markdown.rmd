@@ -26,14 +26,13 @@ estimate.scaling.exponent <- function(a, y0 = 6611, response = gmp$pcgmp,
 }
 ```
 
-Пример вызова с начальным занчением a
+Пример вызова с начальным занчением _a_
 
 ```{r}
 estimate.scaling.exponent(0.15)
 ```
 
-
-С помошью полученного коэффициента постройте кривую (функция curve) зависимости
+С помошью полученного коэффициента постройте кривую (функция _curve_) зависимости
 
 ```{r}
 y.init = 6611
@@ -62,5 +61,3 @@ estimate.scaling.exponent(0.25)$a - scaling.exponent.init
 estimate.scaling.exponent(0.30)$a - scaling.exponent.init
 estimate.scaling.exponent(0.50)$a - scaling.exponent.init
 ```
-
-При начальном значении 0.25 значение a сильно отличается - сходимости нет
